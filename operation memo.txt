@@ -1,0 +1,12 @@
+
+Node app
+1.download Node.js and install
+2.in vsc terminal: cd to the path of workspace folder
+  command: npm init -y → generate package.json file
+  command: npm install express --save → install express
+  command: code -r app.js → generate app.js file
+  write code in app.js file
+  command: node app.js → execute app.js file
+  in browser input: localhost:8080
+  
+  
