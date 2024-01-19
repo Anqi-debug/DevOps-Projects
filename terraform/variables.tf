@@ -110,12 +110,10 @@ variable "sg_egress" {
 #key pair
 variable "key_name" {
   type    = string
-  default = "mtckey"
 }
 
-variable "public_key_path" {
+variable "public_key" {
   type    = string
-  default = "~/.ssh/mtckey.pub"
 }
 
 #ec2 instance
@@ -146,12 +144,6 @@ variable "user_name" {
   default = "ubuntu"
 }
 
-variable "identityfile_path" {
+variable "private_key" {
   type    = string
-  default = "~/.ssh/mtckey"
-}
-
-variable "host_os" {
-  type    = string
-  default = "linux-ssh-config.tpl"
 }

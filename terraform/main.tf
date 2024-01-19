@@ -59,7 +59,7 @@ resource "aws_security_group" "mtc_sg" {
 
 resource "aws_key_pair" "mtc_auth" {
   key_name   = var.key_name
-  public_key = file(var.public_key_path)
+  public_key = var.public_key
 }
 
 resource "aws_instance" "dev_node" {
@@ -75,12 +75,10 @@ resource "aws_instance" "dev_node" {
 
   tags = var.instance_tags
 
-  provisioner "local-exec" {
-    command = templatefile(var.host_os, {
-      hostname     = self.public_ip,
-      user         = var.user_name,
-      identityfile = var.identityfile_path
-    })
-    interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
+  connection {
+    host         = self.public_ip
+    user         = var.user_name
+    private_key  = var.private_key
+    timeout      = "4m"
   }
 }
