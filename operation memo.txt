@@ -9,4 +9,8 @@ Node app
   command: node app.js → execute app.js file
   in browser input: localhost:8080
   
+2.upload to github
+   Error: "Your branch and 'origin/master' have diverged"?
+  git fetch origin
+  git reset --hard origin/master
   
