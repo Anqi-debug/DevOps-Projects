@@ -7,5 +7,5 @@ terraform {
 }
 
 provider "aws" {
-  region                   = var.availability_zone
+  region                   = "us-east-1"
 }
