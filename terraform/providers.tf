@@ -8,5 +8,4 @@ terraform {
 
 provider "aws" {
   region                   = var.availability_zone
-  profile                  = "vscode"
 }

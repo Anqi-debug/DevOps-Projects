@@ -68,6 +68,7 @@ resource "aws_instance" "dev_node" {
   key_name               = aws_key_pair.mtc_auth.key_name
   vpc_security_group_ids = [aws_security_group.mtc_sg.id]
   subnet_id              = aws_subnet.mtc_public_subnet.id
+  iam_instance_profile   = aws_iam_instance_profile.ec2-profile.name
 
   root_block_device {
     volume_size = var.volume_size
@@ -81,4 +82,9 @@ resource "aws_instance" "dev_node" {
     private_key  = var.private_key
     timeout      = "4m"
   }
+}
+
+resource "aws_iam_instance_profile" "ec2-profile" {
+  name = "ec2-profile"
+  role = "EC2-ECR-AUTH"
 }
